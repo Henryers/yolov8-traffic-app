@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1111</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>login</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../data/images/traffic.jpg</normaloff>../data/images/traffic.jpg</iconset>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>431</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>traffic.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>20</y>
+     <width>671</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: white;
+	font-size: 12pt;
+	font-weight: bold;
+}</string>
+   </property>
+   <property name="text">
+    <string>    欢迎来到基于YOLOv8的车辆轨迹识别</string>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>360</y>
+     <width>641</width>
+     <height>451</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTabWidget{
+	border: 0;
+	background-color: black;
+	pane{right:-5px;}
+}</string>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <property name="styleSheet">
+     <string notr="true">QWidget{
+	background-color: rgb(120, 160, 150);
+}</string>
+    </property>
+    <attribute name="title">
+     <string>Tab 1</string>
+    </attribute>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>40</y>
+       <width>151</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+	font-size: 12pt;
+	font-weight: bold;
+	color: rgb(20, 255, 120);
+}</string>
+     </property>
+     <property name="text">
+      <string>username</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>140</y>
+       <width>151</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+	font-size: 12pt;
+	font-weight: bold;
+	color: rgb(20, 255, 120);
+}</string>
+     </property>
+     <property name="text">
+      <string>password</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="login_btn">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>240</y>
+       <width>191</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	font: 12pt &quot;Consolas&quot;;
+	font-weight: bold;
+	background-color: rgb(0,190,255);
+	border-radius: 30%;
+	color: white
+}</string>
+     </property>
+     <property name="text">
+      <string>login</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancel_btn1">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>240</y>
+       <width>191</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	font: 12pt &quot;Consolas&quot;;
+	font-weight: bold;
+	background-color: rgb(0,190,255);
+	border-radius: 30%;
+	color: white
+}</string>
+     </property>
+     <property name="text">
+      <string>cancel</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="login_password">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>140</y>
+       <width>311</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+	font-size:8pt;
+	background-color: white;
+	border: 0;
+}</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="login_username">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>40</y>
+       <width>311</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+	font-size:12pt;
+	background-color: white;
+	border: 0;
+}</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <property name="styleSheet">
+     <string notr="true">QWidget{
+	background-color: rgb(120, 160, 150);
+}</string>
+    </property>
+    <attribute name="title">
+     <string>Tab 2</string>
+    </attribute>
+    <widget class="QLineEdit" name="reg_password">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>140</y>
+       <width>311</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+	font-size:8pt;
+	background-color: white;
+	border: 0;
+}</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="reg_btn">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>240</y>
+       <width>191</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	font: 12pt &quot;Consolas&quot;;
+	font-weight: bold;
+	background-color: rgb(0,190,255);
+	border-radius: 30%;
+	color: white
+}</string>
+     </property>
+     <property name="text">
+      <string>register</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="reg_username">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>40</y>
+       <width>311</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+	font-size:12pt;
+	background-color: white;
+	border: 0;
+}</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>140</y>
+       <width>151</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+	font-size: 12pt;
+	font-weight: bold;
+	color: rgb(20, 255, 120);
+}</string>
+     </property>
+     <property name="text">
+      <string>password</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancel_btn2">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>240</y>
+       <width>191</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	font: 12pt &quot;Consolas&quot;;
+	font-weight: bold;
+	background-color: rgb(0,190,255);
+	border-radius: 30%;
+	color: white
+}</string>
+     </property>
+     <property name="text">
+      <string>cancel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>40</y>
+       <width>151</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+	font-size: 12pt;
+	font-weight: bold;
+	color: rgb(20, 255, 120);
+}</string>
+     </property>
+     <property name="text">
+      <string>username</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="login_tab1">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>230</y>
+     <width>201</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border: 0;
+	height:80px;
+	color: rgb(30,255,150);
+	font: 20pt &quot;黑体&quot;;
+	font-weight: bold;
+}</string>
+   </property>
+   <property name="text">
+    <string>登录</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="reg_tab2">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>230</y>
+     <width>201</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border: 0;
+	height:80px;
+	color: rgb(30,255,150);
+	font: 20pt &quot;黑体&quot;;
+	font-weight: bold;
+}</string>
+   </property>
+   <property name="text">
+    <string>注册</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>90</y>
+     <width>661</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: white;
+	font-size: 12pt;
+	font-weight: bold;
+}</string>
+   </property>
+   <property name="text">
+    <string>        与目标检测研究分析系统！</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>0</y>
+     <width>681</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	background-color: rgb(120, 160, 150);
+	color: white;
+	font-size: 12pt;
+	font-weight: bold;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>431</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	background-color: rgba(120, 160, 150, 0.3);
+	color: white;
+	font-size: 12pt;
+	font-weight: bold;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_8</zorder>
+  <zorder>reg_tab2</zorder>
+  <zorder>label</zorder>
+  <zorder>tabWidget</zorder>
+  <zorder>login_tab1</zorder>
+  <zorder>label_7</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_9</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
