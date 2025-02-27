@@ -992,6 +992,7 @@ class MyWindow(QWidget):
         try:
             # 加载 YOLOv8 model
             model = YOLO('yolov8n.pt')
+            # 或者加载自己训练好的模型
             # model = YOLO('E:\YOLOv8_物体分类检测\\train_object\\runs\detect\\train10\weights\\best.pt')
             # 实例分割模型
             # model = YOLO('yolov8n-seg.pt')
@@ -999,7 +1000,7 @@ class MyWindow(QWidget):
             file_name = os.path.basename(self.track_path.toPlainText())
             # Open the video file
             video_path = 'video/' + file_name
-            print("视频路径有问题？？？", video_path)
+            print("视频路径：", video_path)
             cap = cv2.VideoCapture(video_path)
             # 存储追踪信息
             track_history = defaultdict(lambda: [])
@@ -1011,8 +1012,6 @@ class MyWindow(QWidget):
             visited = set()
             # flag标记
             flag = False
-            print('要进循环了！')
-            print(cap.isOpened())
             # video frames 循环每一帧
             while cap.isOpened():
                 # 读取一帧
