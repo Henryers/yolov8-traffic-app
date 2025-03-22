@@ -35,7 +35,7 @@ class LoginDialog(QDialog):
 
     def init_ui(self):
         # 使用uic加载UI文件
-        self.ui = uic.loadUi("./ui/dialog.ui", self)
+        self.ui = uic.loadUi("./ui/dialog_new.ui", self)
         # tab
         self.tabWidget = self.ui.tabWidget
         self.login_tab1 = self.ui.login_tab1
@@ -182,7 +182,7 @@ class MyWindow(QWidget):
         # 检查登录对话框返回结果
         if result == QDialog.Accepted:
             # 加载qt-designer中设计的ui文件
-            self.ui = uic.loadUi("./ui/main.ui")
+            self.ui = uic.loadUi("./ui/main_new.ui")
             # 菜单下拉框
             self.actiondefault = self.ui.actiondefault
             self.actionblack = self.ui.actionblack
@@ -643,7 +643,7 @@ class MyWindow(QWidget):
             data = [(i, j, res[i][j]) for i in range(7) for j in range(7)]
             # data = [[d[1], d[0], d[2]] for d in data]
             heatmap = (
-                HeatMap(init_opts=opts.InitOpts(width="1000px", height="750px"))
+                HeatMap(init_opts=opts.InitOpts(width="650px", height="500px"))
                 .add_xaxis(x)
                 .add_yaxis("", y, data)
                 .set_global_opts(
@@ -670,7 +670,7 @@ class MyWindow(QWidget):
         print('绘制柱状图')
         try:
             # 绘制chart6_2
-            self.figure6_2 = Figure(figsize=(5, 4))
+            self.figure6_2 = Figure(figsize=(4, 2.5))
             self.myax6 = self.figure6_2.add_subplot(111)
             self.canvas = FigureCanvas(self.figure6_2)
             # 准备数据: x 物体类别  y 对应类别检测到的数量
@@ -732,18 +732,41 @@ class MyWindow(QWidget):
             self.load_image()
 
     def load_image(self):
-        scene = QGraphicsScene()
-        img = QPixmap(self.image_path)
-        # img = img.scaled(450, 400)
-        scene.addPixmap(img)
-        self.raw_img.setScene(scene)
+        try:
+            # 创建 QGraphicsScene
+            scene = QGraphicsScene()
+            # 加载图像
+            img = QPixmap(self.image_path)
+            # 获取 QGraphicsView 的当前大小
+            view_size = self.raw_img.size()
+            view_width = view_size.width()
+            view_height = view_size.height()
+            # 缩放图像以适应 QGraphicsView 的大小，同时保持宽高比
+            scaled_img = img.scaled(view_width, view_height, Qt.KeepAspectRatio)
+            # 将缩放后的图像添加到场景中
+            scene.addPixmap(scaled_img)
+            self.raw_img.setScene(scene)
+            # 设置 QGraphicsView 的场景矩形以适应缩放后的图像
+            self.raw_img.setSceneRect(scaled_img.rect())
+        except Exception as e:
+            print(f"Error occurred while loading and scaling image: {e}")
 
     def show_image(self):
+        # 创建 QGraphicsScene
         scene = QGraphicsScene()
+        # 加载图像
         img = QPixmap(self.image_path)
-        # img = img.scaled(450, 400)
-        scene.addPixmap(img)
+        # 获取 QGraphicsView 的当前大小
+        view_size = self.res_img.size()
+        view_width = view_size.width()
+        view_height = view_size.height()
+        # 缩放图像以适应 QGraphicsView 的大小，同时保持宽高比
+        scaled_img = img.scaled(view_width, view_height, Qt.KeepAspectRatio)
+        # 将缩放后的图像添加到场景中
+        scene.addPixmap(scaled_img)
         self.res_img.setScene(scene)
+        # 设置 QGraphicsView 的场景矩形以适应缩放后的图像
+        self.res_img.setSceneRect(scaled_img.rect())
 
     def detect_objects(self):
         if not self.image_path:
@@ -1367,7 +1390,7 @@ class MyWindow(QWidget):
         print("正在画了...")
         # 位置图
         try:
-            self.figure5 = Figure(figsize=(5, 4))
+            self.figure5 = Figure(figsize=(4, 3))
             self.myax = self.figure5.add_subplot(111)
             self.canvas = FigureCanvas(self.figure5)
             x = data['X']
@@ -1383,7 +1406,7 @@ class MyWindow(QWidget):
             scene = QGraphicsScene()
             print(data['Category'])
             img = QPixmap(f"image/{data['Category'][0]}.png")
-            img = img.scaled(250, 250)
+            img = img.scaled(200, 200)
             scene.addPixmap(img)
             self.show_image5.setScene(scene)
         except Exception as e:
