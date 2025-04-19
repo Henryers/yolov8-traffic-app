@@ -875,6 +875,7 @@ class MyWindow(QWidget):
         # 根据用户combo选择加载预训练模型
         if self.model2.currentText() == '物体检测':
             model = YOLO('yolov8n.pt')
+            # 有自己训练模型的话，也可以换成自己的，如下所示：
             # model = YOLO('E:\YOLOv8_物体分类检测\\train_object\\runs\detect\\train10\weights\\best.pt')
         elif self.model2.currentText() == '实例分割':
             model = YOLO('yolov8n-seg.pt')

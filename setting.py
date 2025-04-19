@@ -1,3 +1,7 @@
+"""
+更改默认的dataset以及train的存储路径（当自己电脑里有多个YOLO环境时可能会用到）
+"""
+
 import ultralytics
 
 # 初始化 SettingsManager

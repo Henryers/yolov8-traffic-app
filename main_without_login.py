@@ -722,8 +722,9 @@ class MyWindow(QWidget):
         # YOLOv8 - img  start
         # 根据用户combo选择加载预训练模型
         if self.model2.currentText() == '物体检测':
-            # model = YOLO('yolov8n.pt')
-            model = YOLO('E:\YOLOv8_物体分类检测\\train_object\\runs\detect\\train10\weights\\best.pt')
+            model = YOLO('yolov8n.pt')
+            # 或者自己有自定义数据集并进行训练的话，这里也可以换成自己训练好的模型，如下所示：
+            # model = YOLO('E:\YOLOv8_物体分类检测\\train_object\\runs\detect\\train10\weights\\best.pt')
         elif self.model2.currentText() == '实例分割':
             model = YOLO('yolov8n-seg.pt')
         # 打开视频文件
@@ -864,7 +865,6 @@ class MyWindow(QWidget):
         try:
             # 加载 YOLOv8 model
             # model = YOLO('yolov8n.pt')
-            # model = YOLO('D:\\test\\YOLOv8_Obb_3_software\\train_object\\runs\detect\\train10\weights\\best.pt')
             model = YOLO('yolov8m-obb.pt')
 
             # 实例分割模型
@@ -902,8 +902,7 @@ class MyWindow(QWidget):
                     print("不指定类别,conf: ", conf3)
                     # Run YOLOv8 tracking 模型
                     results = model.track(frame, persist=True, conf=conf3, iou=IOU3, show=False)
-                    print('obb到底能不能追踪！！！')
-                    # print(results)
+                    print('obb追踪信息')
                     print(results[0].obb)
                 # 用户指定了类别
                 else:
@@ -920,7 +919,7 @@ class MyWindow(QWidget):
                 print("classes:", classes)
                 print("results[0].boxes.id:", ids)
                 if ids is None:
-                    print("没有id也给我补帧，抽帧干嘛！！！")
+                    print("没有id也给我补帧，不要抽帧，防止没检测到物体的画面都消失了，造成视频残缺")
                     video_frames.append(frame)
                     continue
 
@@ -930,10 +929,9 @@ class MyWindow(QWidget):
                                                        results[0].obb.cls.cpu()):
                     # x, y, w, h, angle = obb_box  # 提取 OBB 的中心点 (x, y)，宽高 (w, h) 和旋转角度 (angle)
                     x, y, w, h, angle = map(float, obb_box)  # 确保 x, y, w, h, angle 都转换为浮点数
-                    print('你角度angle信息呢！！！-----------------------------------------')
+                    print('OBB角度angle信息：')
                     print(angle)
                     angle = np.degrees(angle)  # 将弧度制转换为角度制，如果 angle 是弧度
-                    print(angle)
 
                     # 构造旋转矩形
                     rect = ((x, y), (w, h), angle)  # 中心点 (x, y), 宽高 (w, h), 旋转角度 (angle)
